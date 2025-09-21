@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flor Amarilla para ti</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --color-bg: linear-gradient(to top, #FFB6C1, #f35b84);
+        --line-color: linear-gradient(
+          to left top,
+          #82ff86 20%,
+          #144425,
+          #104e1c
+        );
+        --flower-center: radial-gradient(circle, #000, #ff5e00);
+        --leaf-color: radial-gradient(circle, #82ff86, #104e1c);
+        --petal-color: radial-gradient(circle, #ff5e00, #ffbb00);
+      }
+
+      body {
+        background-image: var(--color-bg);
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      h1 {
+        position: absolute;
+        top: 40px;
+        text-align: center;
+        width: 100%;
+        color: #fff;
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        font-size: 28px;
+      }
+
+      .flower_wrapper {
+        position: absolute;
+        left: 50%;
+        bottom: 20px;
+        transform: translateX(-50%);
+        z-index: 5;
+      }
+
+      .flower_stem {
+        width: 20px;
+        height: 400px;
+        background-image: var(--line-color);
+        border-radius: 20px;
+      }
+
+      .flower_center {
+        position: absolute;
+        top: -93px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: var(--flower-center);
+        z-index: 5;
+        opacity: 0;
+        animation: open-flower-center 1s ease-out forwards;
+        animation-delay: 1s;
+      }
+
+      .flower_petal {
+        position: absolute;
+        width: 70px;
+        height: 140px;
+        background: var(--petal-color);
+        clip-path: ellipse(35% 50% at 50% 50%);
+        top: -40%;
+        left: 50%;
+        transform-origin: center bottom;
+        opacity: 0;
+        animation: open-flower-petal 1s ease-out forwards;
+      }
+
+      .flower_petal-1 {
+        --rotate-deg: 0deg;
+        animation-delay: 1.2s;
+      }
+      .flower_petal-2 {
+        --rotate-deg: 30deg;
+        animation-delay: 1.25s;
+      }
+      .flower_petal-3 {
+        --rotate-deg: 60deg;
+        animation-delay: 1.3s;
+      }
+      .flower_petal-4 {
+        --rotate-deg: 90deg;
+        animation-delay: 1.35s;
+      }
+      .flower_petal-5 {
+        --rotate-deg: 120deg;
+        animation-delay: 1.4s;
+      }
+      .flower_petal-6 {
+        --rotate-deg: 150deg;
+        animation-delay: 1.45s;
+      }
+      .flower_petal-7 {
+        --rotate-deg: 180deg;
+        animation-delay: 1.5s;
+      }
+      .flower_petal-8 {
+        --rotate-deg: 210deg;
+        animation-delay: 1.55s;
+      }
+      .flower_petal-9 {
+        --rotate-deg: 240deg;
+        animation-delay: 1.6s;
+      }
+      .flower_petal-10 {
+        --rotate-deg: 270deg;
+        animation-delay: 1.65s;
+      }
+      .flower_petal-11 {
+        --rotate-deg: 300deg;
+        animation-delay: 1.7s;
+      }
+      .flower_petal-12 {
+        --rotate-deg: 330deg;
+        animation-delay: 1.75s;
+      }
+
+      .flower_leaf {
+        position: absolute;
+        width: 70px;
+        height: 120px;
+        background: var(--leaf-color);
+        border-radius: 100px 20px 100px 20px;
+        transform-origin: center bottom;
+      }
+
+      .flower_leaf-1 {
+        left: 60%;
+        bottom: 150px;
+        transform: translateX(-45%) rotate(80deg);
+      }
+
+      .flower_leaf-2 {
+        left: 60%;
+        bottom: 200px;
+        transform: translateX(-55%) rotate(-80deg);
+      }
+
+      @keyframes open-flower-petal {
+        0% {
+          transform: translateX(-50%) translateY(50px) rotate(0deg);
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(-50%) translateY(0) rotate(var(--rotate-deg));
+          opacity: 1;
+        }
+      }
+
+      @keyframes open-flower-center {
+        0% {
+          transform: translateX(-50%) scale(0);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(-50%) scale(1);
+          opacity: 1;
+        }
+      }
+
+      .flower_light,
+      .light {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: rgb(255, 251, 0);
+        border-radius: 50%;
+        filter: blur(2px);
+        z-index: 1;
+      }
+
+      .flower_light {
+        bottom: 450px;
+        animation: light-ans 4s linear infinite backwards;
+      }
+
+      .light-1 {
+        left: 5%;
+        animation-delay: 1s;
+      }
+      .light-2 {
+        left: 15%;
+        animation-delay: 0.5s;
+      }
+      .light-3 {
+        left: 25%;
+        animation-delay: 0.3s;
+      }
+      .light-4 {
+        left: 35%;
+        animation-delay: 0.9s;
+      }
+      .light-5 {
+        left: 45%;
+        animation-delay: 1.5s;
+      }
+      .light-6 {
+        left: 55%;
+        animation-delay: 3s;
+      }
+      .light-7 {
+        left: 65%;
+        animation-delay: 2s;
+      }
+      .light-8 {
+        left: 75%;
+        animation-delay: 3.5s;
+      }
+      .light-9 {
+        left: 85%;
+        animation-delay: 2s;
+      }
+      .light-10 {
+        left: 92%;
+        animation-delay: 3.5s;
+      }
+      .light-11 {
+        left: 95%;
+        animation-delay: 3s;
+      }
+      .light-12 {
+        left: 98%;
+        animation-delay: 0.5s;
+      }
+      .light {
+        position: absolute;
+        bottom: 0px;
+        width: 10px;
+        height: 10px;
+        background-color: rgb(255, 251, 0);
+        border-radius: 50%;
+        filter: blur(2px);
+        animation: light-ans-background 7s linear infinite backwards;
+        z-index: 1; /* confettis detrás de la flor */
+      }
+
+      .light-1 {
+        left: 100px;
+        animation-delay: 1s;
+      }
+      .light-2 {
+        left: 200px;
+        animation-delay: 0.5s;
+      }
+      .light-3 {
+        left: 600px;
+        animation-delay: 0.3s;
+      }
+      .light-4 {
+        left: 800px;
+        animation-delay: 0.9s;
+      }
+      .light-5 {
+        left: 450px;
+        animation-delay: 1.5s;
+      }
+      .light-6 {
+        left: 100px;
+        animation-delay: 3s;
+      }
+      .light-7 {
+        left: 900px;
+        animation-delay: 2s;
+      }
+      .light-8 {
+        left: 600px;
+        animation-delay: 3.5s;
+      }
+      .light-9 {
+        left: 700px;
+        animation-delay: 2s;
+      }
+      .light-10 {
+        left: 950px;
+        animation-delay: 3.5s;
+      }
+      .light-11 {
+        left: 750px;
+        animation-delay: 3s;
+      }
+      .light-12 {
+        left: 850px;
+        animation-delay: 0.5s;
+      }
+
+      @keyframes light-ans {
+        0% {
+          opacity: 0;
+          transform: translateY(0px);
+        }
+        25% {
+          opacity: 1;
+          transform: translateY(-50px) translateX(-20px);
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(-150px) translateX(20px);
+          filter: blur(2px);
+        }
+        75% {
+          transform: translateY(-200px) translateX(-20px);
+          filter: blur(2px);
+        }
+        100% {
+          transform: translateY(-300px);
+          opacity: 0;
+          filter: blur(10px);
+        }
+      }
+
+      @keyframes light-ans-background {
+        0% {
+          opacity: 0;
+          transform: translateY(0) translateX(0);
+        }
+        25% {
+          opacity: 1;
+          transform: translateY(-100px) translateX(10px);
+        }
+        50% {
+          transform: translateY(-200px) translateX(-10px);
+        }
+        75% {
+          transform: translateY(-400px) translateX(15px);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-600px) translateX(-5px);
+        }
+      }
+
+      .flower-btn {
+        padding: 15px 30px;
+        font-size: 18px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        color: #fff;
+        background: linear-gradient(45deg, #ffbb00, #ff5e00);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        z-index: 999;
+        margin: 40px 0;
+      }
+
+      .flower-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+      }
+
+    </style>
+  </head>
+  <body>
+   <audio
+  id="id_audio"
+  src="One Direction - Strong (Audio).mp3"
+  autoplay
+  loop
+  ></audio>
+    <h1>Hola yessis te hice esta flor porque te quiero mucho<br>
+    talvez no sea la mejor ni te la pueda dar en persona<br>
+  espero te guste aunque sea un poco tqm 🍓</h1>
+    <div class="sunflower">
+      <div class="flower_wrapper">
+        <div class="flower_stem"></div>
+        <div class="flower_center"></div>
+        <div class="flower_petal flower_petal-1"></div>
+        <div class="flower_petal flower_petal-2"></div>
+        <div class="flower_petal flower_petal-3"></div>
+        <div class="flower_petal flower_petal-4"></div>
+        <div class="flower_petal flower_petal-5"></div>
+        <div class="flower_petal flower_petal-6"></div>
+        <div class="flower_petal flower_petal-7"></div>
+        <div class="flower_petal flower_petal-8"></div>
+        <div class="flower_petal flower_petal-9"></div>
+        <div class="flower_petal flower_petal-10"></div>
+        <div class="flower_petal flower_petal-11"></div>
+        <div class="flower_petal flower_petal-12"></div>
+
+        <div class="flower_leaf flower_leaf-1"></div>
+        <div class="flower_leaf flower_leaf-2"></div>
+
+        <div class="flower_light flower_light-1"></div>
+        <div class="flower_light flower_light-2"></div>
+        <div class="flower_light flower_light-3"></div>
+        <div class="flower_light flower_light-4"></div>
+        <div class="flower_light flower_light-5"></div>
+        <div class="flower_light flower_light-6"></div>
+        <div class="flower_light flower_light-7"></div>
+        <div class="flower_light flower_light-8"></div>
+      </div>
+    </div>
+
+    <div class="light light-1"></div>
+    <div class="light light-2"></div>
+    <div class="light light-3"></div>
+    <div class="light light-4"></div>
+    <div class="light light-5"></div>
+    <div class="light light-6"></div>
+    <div class="light light-7"></div>
+    <div class="light light-8"></div>
+    <div class="light light-9"></div>
+    <div class="light light-10"></div>
+    <div class="light light-11"></div>
+    <div class="light light-12"></div>
+    <script>
+      const floweBtn = document.querySelector(".flower-btn");
+      const audio = document.getElementById("id_audio")
+        audio.volume = 0.1
+    </script>
+  </body>
+</html>
